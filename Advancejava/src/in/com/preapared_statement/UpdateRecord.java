@@ -1,0 +1,21 @@
+package in.com.preapared_statement;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+
+
+public class UpdateRecord {
+ public static void main(String[] args) throws Exception {
+	 Class.forName("com.mysql.cj.jdbc.Driver");
+	 Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
+	 PreparedStatement ps=conn.prepareStatement("update marksheet set name='sumit' where id=22" );
+	  int i= ps.executeUpdate();
+	  System.out.println("Update using by prepared statement"+ i);
+	 
+	 
+	
+}
+
+}
