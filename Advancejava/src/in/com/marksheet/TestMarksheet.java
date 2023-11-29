@@ -16,12 +16,35 @@ public class TestMarksheet {
 	//	testDelete();
 		//findByPk();
 		//search();
-		add1();
+		//add1();
+		searchDynamic();
 		
 		
 	}
 
 	
+private static void searchDynamic()throws Exception {
+		// TODO Auto-generated method stub
+	MarksheetModel model=new MarksheetModel();
+	MarksheetBean bean=new MarksheetBean();
+	//bean.setName("lavish");
+	//
+	//bean.setRoll_no(101);
+	List list=model.searchDynamic(bean,1,5);
+	Iterator it=list.iterator();
+	while(it.hasNext()) {
+		 bean=(MarksheetBean) it.next();
+		System.out.print(bean.getId());
+		System.out.print("\t"+bean.getName());
+		System.out.print("\t"+bean.getRoll_no());
+		System.out.print("\t"+bean.getPhysics());
+		System.out.print("\t"+bean.getChemistry());
+		System.out.println("\t"+bean.getMaths());
+		
+		
+	}
+
+}
 private static void add1() throws Exception {
 		// TODO Auto-generated method stub
 	MarksheetBean bean=new MarksheetBean();
