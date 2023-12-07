@@ -10,9 +10,9 @@ public class TestTransactionHandling {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			 conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06","root","root");
 			Statement stmt=conn.createStatement();
-			int i=stmt.executeUpdate("insert into  emp1 values (12,'abc',1000)");
-		 i=stmt.executeUpdate("insert into emp1 values (12,'abc',1000)");
-			 i=stmt.executeUpdate("insert into  emp1 values (12,'abc',1000)");
+			int i=stmt.executeUpdate("insert into  emp1 values (15,'abc',1000)");
+		 i=stmt.executeUpdate("insert into emp1 values (16,'abc',1000)");
+			 i=stmt.executeUpdate("insert into  emp1 values (16,'abc',1000)");
 			System.out.println("Data inserted"+i);
 			
 	

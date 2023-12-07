@@ -16,7 +16,7 @@ public class TestUser  {
 
 		UserBean bean = new UserBean();
 
-		bean.setDob(sdf.parse("2023-11-30"));
+		bean.setDob(sdf.parse("2001-01-01"));
 
 		UserModel model = new UserModel();
 

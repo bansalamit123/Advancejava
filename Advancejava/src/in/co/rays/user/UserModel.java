@@ -7,14 +7,15 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import in.co.rays.util.JDBCDataSource;
+
 public class UserModel {
 	public Integer nextPk() throws Exception {
 
 		int pk = 0;
-
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
+//	Class.forName("com.mysql.cj.jdbc.Driver");
+//Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
+		Connection conn=JDBCDataSource.getConnection();
 
 		PreparedStatement ps = conn.prepareStatement("select max(id) from user");
 
@@ -27,11 +28,11 @@ public class UserModel {
 	}
 
 	public void add(UserBean bean) throws Exception {
-
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
-
+//
+//		Class.forName("com.mysql.cj.jdbc.Driver");
+//
+//		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
+		Connection conn=JDBCDataSource.getConnection();
 		PreparedStatement ps = conn.prepareStatement("insert into user values(?, ?, ?, ?, ?, ?, ?)");
 
 		ps.setInt(1, nextPk());
@@ -48,11 +49,11 @@ public class UserModel {
 
 	}
 	public void update(UserBean bean) throws Exception {
-
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
-
+//
+//		Class.forName("com.mysql.cj.jdbc.Driver");
+//
+//		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
+		Connection conn=JDBCDataSource.getConnection();
 		PreparedStatement ps = conn.prepareStatement(
 				"update user set first_name = ?, last_name = ?, login_id = ?, password = ?, dob = ?, address = ? where id = ?");
 
@@ -72,10 +73,10 @@ public class UserModel {
 
 	public void delete(int id) throws Exception {
 
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
-
+//		Class.forName("com.mysql.cj.jdbc.Driver");
+//
+//		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
+		Connection conn=JDBCDataSource.getConnection();
 		PreparedStatement ps = conn.prepareStatement("delete from user where id = ?");
 
 		ps.setInt(1, id);
@@ -88,10 +89,10 @@ public class UserModel {
 
 	public UserBean findByPk(int pk) throws Exception {
 
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
-
+//		Class.forName("com.mysql.cj.jdbc.Driver");
+//
+//		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
+		Connection conn=JDBCDataSource.getConnection();
 		PreparedStatement ps = conn.prepareStatement("select * from user where id = ?");
 
 		ps.setInt(1, pk);
@@ -115,11 +116,11 @@ public class UserModel {
 	}
 
 	public UserBean authenticate(String loginId, String password) throws Exception {
-
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
-
+//
+//		Class.forName("com.mysql.cj.jdbc.Driver");
+//
+//		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
+		Connection conn=JDBCDataSource.getConnection();
 		PreparedStatement ps = conn.prepareStatement("select * from user where login_id = ? and password = ?");
 
 		ps.setString(1, loginId);
@@ -145,10 +146,10 @@ public class UserModel {
 
 	public List search(UserBean bean) throws Exception {
 
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
-
+//		Class.forName("com.mysql.cj.jdbc.Driver");
+//
+//		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
+		Connection conn=JDBCDataSource.getConnection();
 		StringBuffer sql = new StringBuffer("select * from user where 1=1");
 
 		if (bean != null) {

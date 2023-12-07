@@ -9,12 +9,12 @@ import java.util.List;
 
 public class TestMarksheet {
 	public static void main(String[] args) throws Exception {
-		// addRecord();
+		 //addRecord();
 		// addRecord1(25,"praksh",505,98,65,64);
-		//testAdd();
+		testAdd();
 		//testUpdate();
 	//	testDelete();
-		findByPk();
+		//findByPk();
 		//search();
 		//add1();
 		//searchDynamic();
@@ -119,16 +119,12 @@ private static void testDelete() throws Exception {
 
 		model.update(bean);
 
-		
-		
-		
-		
 		}
 	private static void testAdd() throws Exception {
 
 		MarksheetBean bean = new MarksheetBean();
 
-		bean.setId(27);
+		bean.setId(39);
 		bean.setRoll_no(113);
 		bean.setName("dilip");
 		bean.setPhysics(78);
