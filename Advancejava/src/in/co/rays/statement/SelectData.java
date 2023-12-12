@@ -16,8 +16,10 @@ public class SelectData {
 		Statement stmt = conn.createStatement();
          ResultSet rs=stmt.executeQuery("select id,name from marksheet");
          while(rs.next()) {
-        	   System.out.print(rs.getInt(1));
+        	 System.out.print(rs.getInt(1));
+        	 // System.out.print(rs.getInt("id"));
         	  System.out.println("\t"+rs.getString(2));
+        	  //System.out.println("\t"+rs.getString("name"));
 
 	
 	}
