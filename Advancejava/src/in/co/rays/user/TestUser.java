@@ -6,8 +6,24 @@ import java.util.List;
 
 public class TestUser  {
 	public static void main(String[] args) throws Exception {
-	     testAdd();
+	    // testAdd();
 		//testSearch();
+	     testAuthenticate();
+		
+	}
+	private static void testAuthenticate() throws Exception {
+		UserModel model=new UserModel();
+		UserBean bean=model.authenticate("dnbksanbdkj", "1234");
+		if(bean!=null) {
+			System.out.print(bean.getId());
+			System.out.print("\t"+bean.getFirstName());
+			System.out.print("\t"+bean.getLastName());
+			
+			System.out.print("\t"+bean.getLoginId());
+			System.out.print("\t"+bean.getPassword());
+			System.out.print("\t"+bean.getDob());
+			System.out.print("\t"+bean.getAddress());
+		}
 		
 	}
 	private static void testSearch() throws Exception {

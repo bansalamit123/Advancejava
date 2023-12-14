@@ -116,12 +116,9 @@ public class UserModel {
 	}
 
 	public UserBean authenticate(String loginId, String password) throws Exception {
-//
-//		Class.forName("com.mysql.cj.jdbc.Driver");
-//
-//		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
+
 		Connection conn=JDBCDataSource.getConnection();
-		PreparedStatement ps = conn.prepareStatement("select * from user where login_id = ? and password = ?");
+		PreparedStatement ps = conn.prepareStatement("select * from user where loginId = ? and password = ?");
 
 		ps.setString(1, loginId);
 		ps.setString(2, password);
@@ -131,7 +128,7 @@ public class UserModel {
 		UserBean bean = null;
 
 		while (rs.next()) {
-			bean = new UserBean();
+			 bean = new UserBean();
 			bean.setId(rs.getInt(1));
 			bean.setFirstName(rs.getString(2));
 			bean.setLastName(rs.getString(3));
@@ -142,6 +139,7 @@ public class UserModel {
 		}
 		return bean;
 
+		
 	}
 
 	public List search(UserBean bean) throws Exception {
