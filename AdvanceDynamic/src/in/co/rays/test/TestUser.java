@@ -23,11 +23,12 @@ public class TestUser  {
 
 		UserModel model = new UserModel();
 
-		List list = model.search(bean);
+		//List list = model.search(bean); it's will work when made search method only one argument pass
+		List list = model.search(bean,1,1);   //it's a temporary 
 
 		Iterator it = list.iterator();
 
-		while (it.hasNext()) {
+	while (it.hasNext()) {
 
 			bean = (UserBean) it.next();
 

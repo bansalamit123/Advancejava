@@ -17,10 +17,12 @@
 	<h3>
 		Hii,
 		<%=user.getFirstName() %></h3>
-		<h2><a href="LoginCtl?operation=logout">Logout</a> |<a href="UserListCtl">User List</a></h2>
+		<h2><a href="LoginCtl?operation=logout">LogOut</a> |<a href="UserListCtl.do">User List</a>|
+		 <a href="UserAddTableView.jsp">Add User</a>
+		</h2>
+		 
 		
-		
-	<%
+   <%
 		} else {
 	%>
 	<h3>Hii, Guest</h3>

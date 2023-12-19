@@ -24,13 +24,16 @@ public class LoginCtl extends HttpServlet {
 			
 			
 		}
+		
 		resp.sendRedirect("LoginView.jsp");
+		
 	}
   
   @Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String loginid=req.getParameter("loginId");
 		String password=req.getParameter("password");
+		String uri=req.getParameter("uri");
 		
 		UserModel model=new UserModel();
 		UserBean bean=new UserBean();
@@ -43,7 +46,15 @@ public class LoginCtl extends HttpServlet {
 			HttpSession session=req.getSession();
 //			req.setAttribute("user", bean);
 			session.setAttribute("user", bean);
-			resp.sendRedirect("WelcomeCtl");
+			
+			if(uri.equalsIgnoreCase("null")) {
+				resp.sendRedirect("WelcomeCtl");
+				
+			}
+			else {
+				resp.sendRedirect(uri);
+			}
+			//session.setMaxInactiveInterval(10);
 //			RequestDispatcher rd=req.getRequestDispatcher("Welcome2.jsp");
 //			rd.forward(req, resp);
 	}

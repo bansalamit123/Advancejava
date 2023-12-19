@@ -54,7 +54,7 @@ public class UserModel {
 //	
 		Connection conn=JDBCDataSource.getConnection();
 		PreparedStatement ps = conn.prepareStatement(
-				"update user set first_name = ?, last_name = ?, login_id = ?, password = ?, dob = ?, address = ? where id = ?");
+				"update user set firstName = ?, lastName = ?, loginId = ?, password = ?, dob = ?, address = ? where id = ?");
 
 		ps.setString(1, bean.getFirstName());
 		ps.setString(2, bean.getLastName());
@@ -72,9 +72,6 @@ public class UserModel {
 
 	public void delete(int id) throws Exception {
 
-//		Class.forName("com.mysql.cj.jdbc.Driver");
-//
-//		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
 		Connection conn=JDBCDataSource.getConnection();
 		PreparedStatement ps = conn.prepareStatement("delete from user where id = ?");
 
@@ -87,10 +84,6 @@ public class UserModel {
 	}
 
 	public UserBean findByPk(int pk) throws Exception {
-
-//		Class.forName("com.mysql.cj.jdbc.Driver");
-//
-//		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
 		Connection conn=JDBCDataSource.getConnection();
 		PreparedStatement ps = conn.prepareStatement("select * from user where id = ?");
 
@@ -143,23 +136,27 @@ public class UserModel {
 
 	}
 
-	public List search(UserBean bean) throws Exception {
-
-//		Class.forName("com.mysql.cj.jdbc.Driver");
-//
-//		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance06", "root", "root");
+	public List search(UserBean bean,int pageNo,int pageSize) throws Exception {
 		Connection conn=JDBCDataSource.getConnection();
 		StringBuffer sql = new StringBuffer("select * from user where 1=1");
 
 		if (bean != null) {
+			if(bean.getFirstName()!=null&&bean.getFirstName().length()>0) {
+				sql.append(" and firstName like '"+bean.getFirstName() +"%'");
+			}
 
 			if (bean.getDob() != null && bean.getDob().getTime() > 0) {
 
 				sql.append(" and dob like '" + new java.sql.Date(bean.getDob().getTime()) + "%'");
 
 			}
-
+			
 		}
+		if(pageSize>0) {
+			pageNo=(pageNo-1)*pageSize;
+			sql.append(" limit "+ pageNo+","+pageSize);
+		}
+
 
 		System.out.println("SQL ====>>> " + sql);
 
@@ -168,6 +165,7 @@ public class UserModel {
 		ResultSet rs = ps.executeQuery();
 
 		List list = new ArrayList();
+		
 
 		while (rs.next()) {
 			bean = new UserBean();

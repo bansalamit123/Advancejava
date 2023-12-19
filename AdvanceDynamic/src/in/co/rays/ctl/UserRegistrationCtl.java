@@ -33,13 +33,6 @@ public class UserRegistrationCtl extends HttpServlet{
 		String dob=req.getParameter("dob");
 		String address=req.getParameter("address");
 		
-//		
-//		System.out.println(fname);
-//		System.out.println(lname);
-//		System.out.println(login);
-//		System.out.println(password);
-//		System.out.println(dob);
-//		System.out.println(address);
 		UserBean bean=new UserBean();
 		bean.setFirstName(fname);
 		bean.setLastName(lname);

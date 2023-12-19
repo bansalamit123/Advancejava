@@ -11,11 +11,12 @@
 
 <form action="LoginCtl" method ="post">
 
-<center>
+
 
 		<table>
 		<%
 			String msg = (String) request.getAttribute("msg");
+		String uri=(String)request.getAttribute("uri");
 		%>
 		
 				<%
@@ -24,7 +25,7 @@
 				<%=msg%>
 				<%
 					}
-				%>
+				%>			
 		
 		<h2>User Login</h2>
 			
@@ -41,11 +42,14 @@
 		
 			<tr>
 				<th></th>
-				<td><input type= "submit" ></td>
+				<td><input type = "submit" ></td>
 			</tr>
 			
 		</table>
+		<input type="hidden" name="uri" value="<%=uri%>">
+		
+		
 	</form>
-	</center>
+
 </body>
 </html>
