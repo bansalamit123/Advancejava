@@ -30,7 +30,7 @@
 	<br>
 
 	<h1 align="center">
-		<font size="10px" color="red"> <a href="LoginCtl">Online
+		<font size="10px" color="red"> <a href="Welcome2.jsp">Online
 				Result System</a></font>
 	</h1>
 </body>

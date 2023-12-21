@@ -9,6 +9,7 @@
 			String msg = (String) request.getAttribute("msg");
 		UserBean userbean=(UserBean) request.getAttribute("userbean");
 		%>
+		<table>
 		
 				<%
 					if (msg != null) {
@@ -19,8 +20,10 @@
 				%>
 
 		
-		<table>
-		<h2>Edit User</h2>
+		
+		<%if(bean!=null) %>
+		
+      
 		<tr>
 				
 				<td><input type="hidden" name="id" value="<%=(bean!=null)? bean.getId():"" %>" ></td>
@@ -60,9 +63,6 @@
 				<td><input type="submit" name="operation" value="<%=(bean!=null)?"update":"save" %>"></td>
 			</tr>
 		</table>
-		
-		  
-		<table>
 		
 			
 	</form>

@@ -18,7 +18,6 @@ public class UserListCtl extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		UserModel model=new UserModel();
-		UserBean bean=new UserBean();
 		
 		
 		int pageNo = 1;
@@ -26,7 +25,7 @@ public class UserListCtl extends HttpServlet{
 		
 		try {
 			
-			List list=model.search(bean,pageNo,pageSize);
+			List list=model.search(null,pageNo,pageSize);
 			List nextlist=model.search(null,pageNo+1,pageSize);
 			
 			req.setAttribute("list", list);

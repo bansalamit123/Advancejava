@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<%@ include file="Header.jsp"%>
 </head>
 <body>
 	<%
@@ -16,9 +17,7 @@
 		List list = (List) request.getAttribute("list");
 		Iterator it = list.iterator();
 	%>
-
-	<%@ include file="Header.jsp"%>
-	<form action="UserListCtl.do" method="post">
+s
 		<table>
 		
 			<tr>

@@ -26,6 +26,7 @@
 		} else {
 	%>
 	<h3>Hii, Guest</h3>
+	<h3><a href="LoginView.jsp">Login</a></h3>
 	<%
 		}
 	%>
